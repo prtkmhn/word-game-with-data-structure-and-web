@@ -1,0 +1,512 @@
+<html>
+
+<head>
+    
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:900);
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{background-color:black;
+color:white;}
+#word{
+margin:20px;
+top:40%;
+left:75%;
+position:fixed;
+
+
+}
+ 
+#aaa{ z-index : -9999;
+    position: absolute;
+    top : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+    margin  : 0;
+    padding : 0;}
+
+.myButton {
+	-moz-box-shadow: 3px 4px 0px 0px #2888a8;
+	-webkit-box-shadow: 3px 4px 0px 0px #2888a8;
+	box-shadow: 3px 4px 0px 0px #2888a8;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:17px;
+	-webkit-border-radius:17px;
+	border-radius:17px;
+	display:inline-block;
+	cursor:pointer;
+	color:#383c3d;
+	font-family:Verdana;
+	font-size:16px;
+	padding:8px 41px;
+	text-decoration:none;
+	text-shadow:3px 3px 0px #e1e2ed;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+	background-color:#bab1ba;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+#demo1{
+	color:white;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 16px/1 Impact, Charcoal, sans-serif;
+ 
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(55,113,214,0.5) ;
+  box-shadow: 0 0 10px 1px rgba(55,113,214,0.5) ;
+  text-shadow: 4px 2px 4px rgba(12,115,242,0.96) ;
+}
+#numb{
+
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: fixed;
+  cursor: crosshair;
+ top:40%;
+left:35%;
+  padding: 10px 18px 22px 39px;
+  border: 1px solid #b7b7b7;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 27px/normal "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: rgba(12,230,255,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  background: rgba(45,45,45,1);
+  -webkit-box-shadow: 0 0 9px 4px rgba(211,31,31,0.5) ;
+  box-shadow: 0 0 9px 4px rgba(211,31,31,0.5) ;
+  text-shadow: 0 0 7px rgba(20,255,20,0.7) ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.center {
+  position: absolute;
+  top: 60%;
+  left: 49%;
+  -webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+	 font: 400 14px/1.6em 'Lato', sans-serif;
+}
+
+@-webkit-keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 #dc143c;
+  }
+  50% {
+    box-shadow: 0 0 30px 0 #dc143c;
+  }
+}
+@-moz-keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 #dc143c;
+  }
+  50% {
+    box-shadow: 0 0 30px 0 #dc143c;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 #dc143c;
+  }
+  50% {
+    box-shadow: 0 0 30px 0 #dc143c;
+  }
+}
+.mybutton {
+  background: none;
+  color: inherit;
+  font: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.mybutton-glow {
+  background: #dc143c;
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 16px 34px;
+  box-shadow: 0 0 0 0 #dc143c;
+  -webkit-animation: glow 1.4s linear infinite;
+ -moz-animation: glow 1.4s linear infinite;
+          animation: glow 1.4s linear infinite;
+}
+
+
+</style>
+</head>
+
+<body>
+   	 <p id="demo"></p>
+    <div id="demo1"></div>
+    <p id="demo3"></p>
+
+    <div class='field'>
+<image src="gray.png" id="demo10" style="width:30px; height:30px;  position:absolute;
+   top:0;
+   right:0;"></img>
+        <input id="numb">
+        
+	<div class='center'>
+         <a href="#" class="myButton mybutton-glow" id="butt"onclick="create()">generate</a>
+</div>
+    </div>
+	
+    <p id="word"></p>
+   
+    <p id="demo4"></p>
+    
+    <p id="demo6"></p>
+	<div id="aaa"></div>
+</body>
+<script src="test3.js"></script>
+<script>
+    // Main Driver function
+    document.getElementById('numb').onkeydown = function checker(e) {
+        if (e.keyCode == 13) { // When enter pressed
+            var t0 = performance.now();
+            x = document.getElementById("numb").value;
+            if (x == null) {
+                x = a;
+                generate(x);
+            }
+            arr.push(a);
+            new_word = arr[arr.length - 1];
+            old_word = arr[arr.length - 2];
+            if ((getEditDistance(a, x) == 1) && (search(x) == true) && search_arr(arr, x) == false) {
+                arr.push(x);
+ 
+                text = "Entered elements are : <br>" + arr.join("<br>");
+		arr.push("----------------------------------");
+                document.getElementById("demo1").innerHTML = "<h2>" + text;
+                
+		document.getElementById("demo10").src="green.png";
+                generate(x);
+                var t1 = performance.now();
+                var time = t1 - t0;
+                t.push(time);
+                text1 = t;
+            } else if ((getEditDistance(new_word, old_word) == 1) && (search(x) == true) && search_arr(arr, x) == false) {
+                arr.push(x);
+                text = "Entered elements are : <br>" + arr;
+		arr.push("----------------------------------");
+                document.getElementById("demo1").innerHTML = "<h2>" + text ;
+
+		document.getElementById("demo10").src="green.png";
+                generate(x);
+                var t1 = performance.now();
+                var time = t1 - t0;
+                t.push(time);
+                text1 = t;
+            } else if ((getEditDistance(new_word, old_word) != 1) || search(x) == false) {
+                
+document.getElementById("demo10").src="red.png";
+                arr.pop();
+                var t1 = performance.now();
+                var time = t1 - t0;
+                t.push(time);
+                text1 = t;
+            } else {
+           
+		document.getElementById("demo10").src="red.png";
+                arr.pop();
+            }
+            document.getElementById("demo5").innerHTML = "<h2>" + average(t) / 1000;
+            document.getElementById("numb").value = "";
+            console.log(arr);
+        }
+    }
+
+    function average(arr) {
+        var total = 0;
+        for (var i = 0; i < arr.length; i++) {
+            total += arr[i];
+        }
+        var avg = total / arr.length;
+        return avg;
+    }
+    /* Seraching functions in the Program */
+    // Find the Hash table
+    function search(x) {
+        for (i in words[x[0]]) {
+            if (words[x[0]][i] == x)
+                return true;
+        }
+        return false;
+    }
+    // Find in an array
+    function search_arr(arr, x) {
+        for (i in arr) {
+            if (arr[i] == x) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // function to create a new word each time generate is clicked
+    function create() {
+        t = [];
+        arr = [];
+        max = 122;
+        min = 97;
+        r = Math.floor(Math.random() * (max - min + 1)) + min;
+        a1 = words[String.fromCharCode(r)];
+        ma = words[String.fromCharCode(r)].length -1;
+        mi = 0;
+        r1 = Math.floor(Math.random() * (ma - mi + 1)) + mi;
+        a = words[String.fromCharCode(r)][r1];
+        document.getElementById("word").innerHTML = "<h2> " + a;
+        performance = window.performance;
+        return a;
+    }
+    // generates a new word based on the word given by the user
+    function generate(x) {
+        for (i in words[x[0]]) {
+            if (getEditDistance(words[x[0]][i], x) == 1 && words[x[0]][i] != x) {
+                a = words[x[0]][i];
+                document.getElementById("word").innerHTML = "<h2> " + a;
+                return true;
+            }
+        }
+        while (rec(x) != true) {
+            rec(x);
+        }
+        document.getElementById("word").innerHTML = "<h2>No possible word! You win! : ";
+    }
+    // Helper function for generate when the words with edit distance 1 are exhausted from the domain of the first charachter
+    function rec(x) {
+        max = 122;
+        min = 97;
+        b = Math.floor(Math.random() * (max - min + 1)) + min;
+        for (i in words[String.fromCharCode(b)]) {
+            if (getEditDistance(words[String.fromCharCode(b)][i], x) == 1 && words[String.fromCharCode(b)][i] != x) {
+                a = words[String.fromCharCode(b)][i];
+                document.getElementById("word").innerHTML = "<h2>" + a;
+                return true;
+            }
+        }
+    }
+    // Edit Distance  function
+    function getEditDistance(a, b) {
+
+        if (a.length == 0) return b.length;
+        if (b.length == 0) return a.length;
+
+        var matrix = [];
+
+        // increment along the first column of each row
+        var i;
+        for (i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+
+        // increment each column in the first row
+        var j;
+        for (j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+
+        // Fill in the rest of the matrix
+        for (i = 1; i <= b.length; i++) {
+            for (j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+
+                } else {
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, // substitution
+                        Math.min(matrix[i][j - 1] + 1, // insertion
+                            matrix[i - 1][j] + 1)); // deletion
+
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+                }
+            }
+        }
+        console.log(matrix[b.length][a.length]);
+        return matrix[b.length][a.length];
+    };
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+
+<script>
+  var mouseX = 0,
+      mouseY = 0,
+      windowHalfX = window.innerWidth / 2,
+      windowHalfY = window.innerHeight / 2,
+      SEPARATION = 200,
+      AMOUNTX = 10,
+      AMOUNTY = 10,
+      camera,
+      scene,
+      renderer;
+  
+  init();
+  animate();
+
+	function init() {
+
+  	var container,
+        separation = 100,
+        amountX = 50,
+        amountY = 50,
+        particle;
+    
+    container = document.getElementById('aaa');
+
+
+    scene = new THREE.Scene();
+
+    renderer = new THREE.CanvasRenderer( { alpha: true }); // gradient; this can be swapped for WebGLRenderer
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    container.appendChild( renderer.domElement );
+    
+    camera = new THREE.PerspectiveCamera(
+    	75,
+      window.innerWidth / window.innerHeight,
+      1,
+      10000
+    );
+    camera.position.z = 100;
+
+		// particles
+    var PI2 = Math.PI * 2;
+    
+    var material = new THREE.SpriteCanvasMaterial( {
+
+    	color: 0xffffff,
+    	program: function ( context ) {
+				context.beginPath();
+        context.arc( 0, 0, 0.5, 0, PI2, true );
+        context.fill();
+      }
+    });
+    
+    var geometry = new THREE.Geometry();
+
+    for ( var i = 0; i < 100; i ++ ) {
+      particle = new THREE.Sprite( material );
+      particle.position.x = Math.random() * 2 - 1;
+      particle.position.y = Math.random() * 2 - 1;
+      particle.position.z = Math.random() * 2 - 1;
+      particle.position.normalize();
+      particle.position.multiplyScalar( Math.random() * 10 + 450 );
+      particle.scale.x = particle.scale.y = 10;
+      scene.add( particle );
+      geometry.vertices.push( particle.position );
+    }
+
+    // lines
+
+    var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0xffffff, opacity: 0.5 } ) );
+    scene.add( line );
+
+    // mousey
+    
+    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+		
+ 		window.addEventListener( 'resize', onWindowResize, false );
+
+	} // end init();
+
+	function onWindowResize() {
+
+  	windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+	}
+
+	function onDocumentMouseMove(event) {
+
+  	mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+
+  }
+
+  function onDocumentTouchStart( event ) {
+
+		if ( event.touches.length > 1 ) {
+
+    	event.preventDefault();
+
+      mouseX = event.touches[ 0 ].pageX - windowHalfX;
+      mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+    }
+	}
+
+  function onDocumentTouchMove( event ) {
+
+  	if ( event.touches.length == 1 ) {
+
+    	event.preventDefault();
+
+      mouseX = event.touches[ 0 ].pageX - windowHalfX;
+      mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+		}
+	}
+
+	function animate() {
+    
+		requestAnimationFrame( animate );
+    render();
+    
+	}
+
+	function render() {
+		
+    camera.position.x += ( mouseX - camera.position.x ) * .05;
+    camera.position.y += ( - mouseY + 200 - camera.position.y ) * .05;
+    camera.lookAt( scene.position );
+
+    renderer.render( scene, camera );
+  
+  }
+</script>
+
+</html>

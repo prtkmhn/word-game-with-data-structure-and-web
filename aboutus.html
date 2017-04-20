@@ -1,0 +1,125 @@
+<html>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html , body
+{
+  height:100%;
+  width:100%;
+  background-color:gray;
+	color:white;
+  font-family: 'Raleway', sans-serif;
+  overflow-x:hidden;
+}
+
+.titleBlock
+{
+  width:70%;
+  margin-left:15%;
+}
+
+.Sitetitle:before
+{
+  content:"";
+  width:50px;
+  height:2px;
+  background:#000;
+  position: absolute;
+  margin-top:18px;
+  margin-left:-60px;
+}
+
+.Sitetitle:after
+{
+  content:"";
+  width:50px;
+  height:2px;
+  background:#000;
+  position: absolute;
+  margin-top:18px;
+  margin-left:8px;
+}
+
+.displayWrapper
+{
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  padding: 10px;
+  width:320px;
+  margin-top:20px;
+}
+.displayBox
+{
+  width:300px;
+  height:300px;
+  overflow: hidden;   
+}
+.displayBox img
+{
+  width:100%;
+  -webkit-transition: all 5s ease;
+    transition: all 5s ease;
+  position:relative;
+}
+.displayBox img:hover
+{
+  cursor:pointer;
+   transform: translateY(-83.7%);
+}
+
+</style>
+
+<body>
+<center class="titleBlock">
+  <h1 class="Sitetitle">About us</h1>
+  <p>
+    <b>Hover the Image to see the effect</b>
+  </p>
+</center>
+
+<div class="row">
+  
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+  
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <center>
+    <div class="displayWrapper">
+      <div class="displayBox">
+        <img src="https://1.bp.blogspot.com/-BhykoYbab-o/T6wlH2NzyJI/AAAAAAAAAQ4/FUTe2Lxn0Ts/s1600/Nicole%2B-%2BPeople%2BMaking%2BGood.jpg" alt="image1"/>
+      </div>
+    </div>
+      <h4>rishi</h4>
+    </center>
+  </div>
+  
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <center>
+    <div class="displayWrapper">
+      <div class="displayBox">
+        <img src="http://allthingsd.com/files/2012/01/Thorsten_Heins.png" alt="image1"/>
+      </div>
+    </div>
+      <h4>sampat</h4>
+    </center>
+  </div>
+    
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <center>
+    <div class="displayWrapper">
+      <div class="displayBox">
+        <img src="http://cartoonbros.com/wp-content/uploads/2016/05/Batman-12-768x1000.jpg" alt="image1"/>
+      </div>
+    </div>
+      <h4>me</h4>
+    </center>
+  </div>
+
+  
+  </div>  
+    
+</div>
+
+
+
+
+</body>
+</html>

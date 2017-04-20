@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/mod.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+</head>
+<body>
+<div id="nav">
+    <div id="nav-wrapper">
+      <ul>
+
+          <li><h4><a href="#1">Home</h4></a></li>
+          <li><h4><a href="#2">Editablle Tag</h4></a></li>
+          <li><h4><a href="#3">Overlay</h4></a></li>
+
+      </ul>
+  </div>
+</div>
+<div class="parallax" id ="1">
+<h1> Let's play a Game! </h1>
+</div>
+<div class="parallax2" id="2">
+  <h1> This game is cool.</h1>
+</div>
+<div class="parallax1" id="3">
+  <h2 style="text-align:center; padding-top:20%; color:white;font-family:lato; font-size:400%;"> Modes to Choose from</h2>
+  <div class="alig">
+  <div class="ph-float">
+      <a href="3.html"><div class='ph-button ph-btn-green'>3 Letters</div></a>
+      <a href="4.html"><div class='ph-button ph-btn-green'>4 Letters</div></a>
+      <a href="5.html"><div class='ph-button ph-btn-green'>5 Letters</div></a>
+      <a href="mixed.html"> <div class='ph-button ph-btn-green'>Mixed</div></a>
+</div>
+</div>
+</body>

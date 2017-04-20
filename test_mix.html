@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <h2>Press Generate to create a new word and hit Enter when you have a word ready!</h2>
+
+    <div class='field'>
+
+        <input id="numb">
+        <lable>
+            Enter The word
+        </lable>
+        <button onclick="create()">Generate</button>
+    </div>
+    <p id="word"></p>
+    <p id="demo"></p>
+    <div id="demo1"></div>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+</body>
+<script src="testmix.js"></script>
+<script>
+    // Main Driver function
+    document.getElementById('numb').onkeydown = function checker(e) {
+        if (e.keyCode == 13) { // When enter pressed
+            var t0 = performance.now();
+            x = document.getElementById("numb").value;
+            if (x == null) {
+                x = a;
+                generate(x);
+            }
+            arr.push(a);
+            new_word = arr[arr.length - 1];
+            old_word = arr[arr.length - 2];
+            if ((getEditDistance(a, x) == 1) && (search(x) == true) && search_arr(arr, x) == false) {
+                arr.push(x);
+                text = "Entered elements are : " + arr;
+                document.getElementById("demo1").innerHTML = "<h2>" + text;
+                document.getElementById("demo3").innerHTML = "<h2>" + "Valid";
+                generate(x);
+                var t1 = performance.now();
+                var time = t1 - t0;
+                t.push(time);
+                text1 = t;
+            } else if ((getEditDistance(new_word, old_word) == 1) && (search(x) == true) && search_arr(arr, x) == false) {
+                arr.push(x);
+                text = "Entered elements are : " + arr;
+                document.getElementById("demo1").innerHTML = "<h2>" + text;
+                document.getElementById("demo3").innerHTML = "<h2>" + "Valid";
+                generate(x);
+                var t1 = performance.now();
+                var time = t1 - t0;
+                t.push(time);
+                text1 = t;
+            } else if ((getEditDistance(new_word, old_word) != 1) || search(x) == false) {
+                document.getElementById("demo3").innerHTML = "<h2>" + "InValid";
+                arr.pop();
+                var t1 = performance.now();
+                var time = t1 - t0;
+                t.push(time);
+                text1 = t;
+            } else {
+                document.getElementById("demo3").innerHTML = "<h2>" + "InValid";
+                arr.pop();
+            }
+            document.getElementById("demo5").innerHTML = "<h2>" + average(t) / 1000;
+            document.getElementById("numb").value = "";
+            console.log(arr);
+        }
+    }
+
+    function average(arr) {
+        var total = 0;
+        for (var i = 0; i < arr.length; i++) {
+            total += arr[i];
+        }
+        var avg = total / arr.length;
+        return avg;
+    }
+    /* Seraching functions in the Program */
+    // Find the Hash table
+    function search(x) {
+        for (i in words[x[0]]) {
+            if (words[x[0]][i] == x)
+                return true;
+        }
+        return false;
+    }
+    // Find in an array
+    function search_arr(arr, x) {
+        for (i in arr) {
+            if (arr[i] == x) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // function to create a new word each time generate is clicked
+    function create() {
+        t = [];
+        arr = [];
+        max = 122;
+        min = 97;
+        r = Math.floor(Math.random() * (max - min + 1)) + min;
+        a1 = words[String.fromCharCode(r)];
+        ma = words[String.fromCharCode(r)].length -1;
+        mi = 0;
+        r1 = Math.floor(Math.random() * (ma - mi + 1)) + mi;
+        a = words[String.fromCharCode(r)][r1];
+        document.getElementById("word").innerHTML = "<h2>New word : " + a;
+        performance = window.performance;
+        return a;
+    }
+    // generates a new word based on the word given by the user
+    function generate(x) {
+        for (i in words[x[0]]) {
+            if (getEditDistance(words[x[0]][i], x) == 1 && words[x[0]][i] != x) {
+                a = words[x[0]][i];
+                document.getElementById("word").innerHTML = "<h2>New word : " + a;
+                return true;
+            }
+        }
+        while (rec(x) != true) {
+            rec(x);
+        }
+        document.getElementById("word").innerHTML = "<h2>No possible word! You win! : ";
+    }
+    // Helper function for generate when the words with edit distance 1 are exhausted from the domain of the first charachter
+    function rec(x) {
+        max = 122;
+        min = 97;
+        b = Math.floor(Math.random() * (max - min + 1)) + min;
+        for (i in words[String.fromCharCode(b)]) {
+            if (getEditDistance(words[String.fromCharCode(b)][i], x) == 1 && words[String.fromCharCode(b)][i] != x) {
+                a = words[String.fromCharCode(b)][i];
+                document.getElementById("word").innerHTML = "<h2>New word : " + a;
+                return true;
+            }
+        }
+    }
+    // Edit Distance  function
+    function getEditDistance(a, b) {
+
+        if (a.length == 0) return b.length;
+        if (b.length == 0) return a.length;
+
+        var matrix = [];
+
+        // increment along the first column of each row
+        var i;
+        for (i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+
+        // increment each column in the first row
+        var j;
+        for (j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+
+        // Fill in the rest of the matrix
+        for (i = 1; i <= b.length; i++) {
+            for (j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+
+                } else {
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, // substitution
+                        Math.min(matrix[i][j - 1] + 1, // insertion
+                            matrix[i - 1][j] + 1)); // deletion
+
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+                }
+            }
+        }
+        console.log(matrix[b.length][a.length]);
+        return matrix[b.length][a.length];
+    };
+</script>
+
+</html>

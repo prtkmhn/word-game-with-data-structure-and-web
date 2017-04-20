@@ -1,0 +1,183 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+<style>
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: url(game.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+/** [Main Styling] *****/
+.panel {
+  font-family: 'Montserrat';
+  border-radius: 3px;
+}
+.panel--static {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 60%;
+  min-height: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ddd;
+}
+.panel--static .panel__content {
+  padding: 3rem;
+}
+.panel--sliding {
+  position: absolute;
+  top: -5%;
+  left: 4%;
+  width: 50%;
+  height: 110%;
+  background: #fefefe;
+  box-shadow: 3px -2px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.panel--sliding .panel__content.login {
+  display: none;
+}
+.panel__heading {
+  font-size: 1.2rem;
+}
+.panel--sliding .panel__heading {
+  color: #e26a6a;
+  text-transform: uppercase;
+}
+.panel__copy {
+  font-size: 0.7rem;
+}
+.panel form {
+  width: 100%;
+  margin-top: 2.5em;
+}
+.panel form .input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.2rem;
+  font-size: 0.8rem;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #ddd;
+}
+.panel form .input:focus {
+  outline: 0;
+}
+.panel .btn {
+  min-width: 120px;
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+.panel .btn--primary {
+  background: #E26A6A;
+  color: #fefefe;
+  border: 0;
+}
+.panel .btn--secondary {
+  background: transparent;
+  color: #ccc;
+  border: 2px solid #ccc;
+}
+.panel .btn:focus {
+  outline: 0;
+}
+.panel a,
+.panel a:focus,
+.panel a:visited,
+.panel a:active {
+  display: block;
+  font-size: 0.7rem;
+  text-decoration: none;
+  color: #aaa;
+}
+
+
+
+</style></head>
+<body>
+<div class="panel panel--static">
+    <div class="panel__content left">
+        <h1 class="panel__heading">Don't have an account?</h1><!-- don't change lall these text , else it'll mess up everything mate-->
+        <p class="panel__copy">nice to meet you sir, would you like to play a simple game we made today for you and your friend to enjoy, it's really fun  </p>
+        <button type="button" class="btn btn--secondary signup">Sign up</button>
+    </div>
+    <div class="panel__content right">
+        <h1 class="panel__heading">Have an account?</h1>
+        <p class="panel__copy">well well well, what do we have here. A champion comes back to play the game with us. Nice to have you back player</p>
+        <button type="button" class="btn btn--secondary login">Log in</button>
+    </div>
+    
+    <div class="panel panel--sliding">
+        <div class="panel__content signup">
+            <h1 class="panel__heading">Sign up</h1>
+            <form id="signup">
+                <input type="text" placeholder="Full name" class="input input--name">
+                <input type="text" placeholder="Email" class="input input--email">
+                <input type="text" placeholder="Password" class="input input--password">
+                <button type="button" class="btn btn--primary">Sign up</button>
+            </form>
+        </div>
+            
+            <div class="panel__content login">
+                <h1 class="panel__heading">Log in</h1>
+                <form id="login">
+                    <input type="text" placeholder="Email" class="input input--email">
+                    <input type="text" placeholder="Password" class="input input--password">
+                    <button class="btn btn--primary">Log in</button>
+                    <a href="/">Forgot password?</a>
+                </form>
+        </div>
+    </div>    
+</div>
+<script src="js/jquery.min.js"></script>
+
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script>
+(function() {
+    var staticPanel = $('.panel--static');
+    var slidingPanel = $('.panel--sliding');
+    
+    var signupBtn = staticPanel.find('.btn.signup');
+    var loginBtn = staticPanel.find('.btn.login');
+    
+    var signupContent = slidingPanel.find('.panel__content.signup');
+    
+    var loginContent = slidingPanel.find('.panel__content.login');
+
+    signupBtn.on('click', function() {
+        loginContent.hide();
+        signupContent.show();
+        slidingPanel.animate({
+            'left': '4%'
+        }, 550, 'easeInOutBack');
+    });
+
+    loginBtn.on('click', function() {
+        signupContent.hide();
+        loginContent.show();
+        slidingPanel.animate({
+            'left': '54%'
+        }, 550, 'easeInOutBack');
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+/* Variables */
+/* Styles */
+h2{
+	font-family: "Oswald", sans-serif;
+	color: white;
+	text-align:center;
+}
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: #359e86;
+}
+body .field {
+  margin: auto;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100px;
+  right: 0;
+  font-family: "Oswald", sans-serif;
+  width: 300px;
+}
+body lable {
+  font-size: 30px;
+  position: absolute;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.26);
+  height: 100px;
+  left: 0;
+  width: 400px;
+  color: white;
+  top: 23px;
+  z-index: -1;
+  transition-duration: 0.2s;
+  transition-property: transform;
+}
+body input {
+  border: none;
+  padding: 40px 0px 20px 0px;
+  box-shadow: 0px 3px white, 0px 5px rgba(0, 0, 0, 0.16);
+  color: white;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.26);
+  background: transparent;
+  outline: none;
+  height: 50px;
+  font-family: "Oswald", sans-serif;
+  width: 300px;
+  transition-property: transform;
+  font-size: 26px;
+}
+body input:focus + lable {
+  transform: translateY(-45px) translateX(-80px) scale(0.6);
+}
+
+body input:valid + lable {
+  transform: translateY(-45px) translateX(-80px) scale(0.6);
+}
