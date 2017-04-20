@@ -1,2 +1,3 @@
 # word-game-with-data-structure-and-web
-word
+open indexnew to start, no need to open login page . 
+Sorry for the shabbiness, will clean out the code soon 
